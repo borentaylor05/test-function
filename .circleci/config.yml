@@ -30,8 +30,7 @@ jobs:
         
       # run tests!
       - run: npm test
-
-    branches:
+      branches:
         ignore:
             - master
             - run:
