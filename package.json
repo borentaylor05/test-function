@@ -1,0 +1,28 @@
+{
+  "name": "test-function",
+  "version": "1.0.0",
+  "description": "Base for a node API Gateway lambda using CircleCI for CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf node_modules test-function.zip",
+    "test": "mocha",
+    "function:create": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/create-function.js",
+    "function:update:dev": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/update-function-dev.js",
+    "function:update:stage": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/update-function-stage.js",
+    "zip": "npm run clean && npm i --production && zip test-function.zip *.js package.json node_modules"
+  },
+  "keywords": [
+    "lambda",
+    "node",
+    "circl-ci"
+  ],
+  "author": "Taylor Boren",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.224.1",
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "mocha": "^5.1.0"
+  }
+}
