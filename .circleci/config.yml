@@ -34,14 +34,6 @@ jobs:
             command: npm run test:unit
 
       - run:
-            name: Prep integration tests
-            command: npm i --save-dev frisby
-    
-      - run:
-            name: Integration Tests
-            command: npm run test:integration
-
-      - run:
             name: Deploy
             command: |
                 if [ "${CIRCLE_BRANCH}" == "master" ]; then
@@ -49,4 +41,11 @@ jobs:
                 else
                     npm run function:update:dev
                 fi
-
+      
+      - run:
+            name: Prep integration tests
+            command: npm i --save-dev frisby
+             
+      - run:
+            name: Integration Tests
+            command: npm run test:integration

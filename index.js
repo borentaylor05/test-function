@@ -1,5 +1,10 @@
 
 exports.handler = (event) => {
-    console.log('V3');
-    return Promise.resolve({statusCode: 200, body: JSON.stringify(event)});
-}
+    return Promise.resolve({
+        statusCode: 200, 
+        body: {
+            version: 'V4',
+            event: JSON.stringify(event)
+        }
+    });
+};

@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf node_modules test-function.zip",
+    "test:linter": "eslint *.js ./**/*.js",
     "test:unit": "mocha test/unit/**/*.test.js",
     "test:integration": "mocha test/integration/**/*.test.js",
-    "test": "npm run test:unit && npm run test:integration",
+    "test": "npm run test:linter && npm run test:unit && npm run test:integration",
     "function:create": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/create-function.js",
     "function:update:dev": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/update-function-dev.js",
     "function:update:stage": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/update-function-stage.js",
@@ -26,6 +27,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "frisby": "^2.0.15",
+    "jest": "^22.4.3",
     "mocha": "^5.1.0"
   }
 }

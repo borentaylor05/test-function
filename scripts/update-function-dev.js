@@ -15,7 +15,7 @@ function updateAlias(functionName, version) {
 
     lambda.updateAlias(params, function(err) {
         if (err) throw new Error(`Error updating DEV to point to version ${version}: ${err.stack}`); // an error occurred
-        else     console.log(`Updated DEV to version ${version}`);           // successful response
+        else     console.info(`Updated DEV to version ${version}`);           // successful response
     });
 }
 
@@ -28,7 +28,7 @@ fs.readFile(`${functionName}.zip`, function (err, data) {
         FunctionName: functionName,
         Publish: true,
         ZipFile: buffer
-    }
+    };
     
     lambda.updateFunctionCode(params, function(err, data) {
         if (err) throw new Error(`Error updating function code on DEV: ${err.stack}`);
