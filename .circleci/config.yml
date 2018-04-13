@@ -32,14 +32,14 @@ jobs:
       - run:
             name: Unit Tests
             command: npm run test:unit
+
+        - run:
+            name: Prep integration tests
+            command: npm i --save-dev frisby
     
       - run:
             name: Integration Tests
             command: npm run test:integration
-
-      - run:
-            name: Prep integration tests
-            command: npm i --save-dev frisby
 
       - run:
             name: Deploy
