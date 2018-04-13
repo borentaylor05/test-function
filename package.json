@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf node_modules test-function.zip",
+    "server": "node dev/server.js",
     "test:linter": "eslint *.js ./**/*.js",
     "test:unit": "mocha test/unit/**/*.test.js",
     "test:integration": "mocha test/integration/**/*.test.js",
@@ -12,7 +13,7 @@
     "function:create": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/create-function.js",
     "function:update:dev": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/update-function-dev.js",
     "function:update:stage": "npm run zip && npm i --save-dev aws-sdk && node ./scripts/update-function-stage.js",
-    "zip": "npm run clean && npm i --production && zip test-function.zip *.js package.json node_modules"
+    "zip": "npm run clean && npm i --production && zip test-function.zip *.js node_modules"
   },
   "keywords": [
     "lambda",
@@ -26,6 +27,7 @@
     "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
+    "express": "^4.16.3",
     "frisby": "^2.0.15",
     "jest": "^22.4.3",
     "mocha": "^5.1.0"
