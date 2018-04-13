@@ -1,10 +1,12 @@
 
 exports.handler = (event) => {
+    const resp = {
+        event,
+        version: 'V4'
+    };
+
     return Promise.resolve({
         statusCode: 200, 
-        body: {
-            version: 'V4',
-            event: JSON.stringify(event)
-        }
+        body: JSON.stringify(resp)
     });
 };
