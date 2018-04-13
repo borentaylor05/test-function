@@ -35,8 +35,8 @@ jobs:
             name: Deploy
             command: |
                 if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                    npm run function:create:stage
+                    npm run function:update:stage
                 else
-                    npm run function:create:dev
+                    npm run function:update:dev
                 fi
 
