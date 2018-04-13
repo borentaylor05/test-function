@@ -30,8 +30,8 @@ jobs:
         
       # run tests!
       - run:
-        name: Linter
-        command: npm run test:linter
+            name: Linter
+            command: npm run test:linter
 
       - run:
             name: Unit Tests
