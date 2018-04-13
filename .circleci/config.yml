@@ -31,11 +31,12 @@ jobs:
       # run tests!
       - run: npm test
 
-      - deploy:
+      - run:
+            name: Deploy
             command: |
                 if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                    cd project && npm run function:create:stage
+                    npm run function:create:stage
                 else
-                    cd project && npm run function:create:dev
+                    npm run function:create:dev
                 fi
 
