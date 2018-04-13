@@ -1,5 +1,5 @@
 
 exports.handler = (event) => {
-    console.log('V2');
-    return Promise.resolve({statusCode: 200, message: JSON.stringify(event)});
+    console.log('V3');
+    return Promise.resolve({statusCode: 200, body: JSON.stringify(event)});
 }
