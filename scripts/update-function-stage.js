@@ -15,13 +15,13 @@ function updateAlias(functionName, version) {
     
     // update STAGE
     lambda.updateAlias(params, function(err) {
-        if (err) console.log(`Error updating STAGE to point to version ${version}`, err.stack); // an error occurred
+        if (err) throw new Error(`Error updating STAGE to point to version ${version}: ${err.stack}`); // an error occurred
         else     console.log(`Updated STAGE to version ${version}`);           // successful response
     });
 
     // update DEV to match what's on master
     lambda.updateAlias({...params, Name: 'DEV'}, function(err) {
-        if (err) console.log(`Error updating DEV to point to version ${version}`, err.stack); // an error occurred
+        if (err) throw new Error(`Error updating DEV to point to version ${version}: ${err.stack}`); // an error occurred
         else     console.log(`Updated DEV to version ${version}`);           // successful response
     });
 }
@@ -38,7 +38,7 @@ fs.readFile(`${functionName}.zip`, function (err, data) {
     }
     
     lambda.updateFunctionCode(params, function(err, data) {
-        if (err) return console.log(err, err.stack);
+        if (err) throw new Error(`Error updating function code on STAGE: ${err.stack}`);
         
         updateAlias(functionName, data.Version);
     });
