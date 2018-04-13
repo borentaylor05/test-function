@@ -34,8 +34,8 @@ jobs:
             command: npm run test:linter
 
       - run:
-            name: Unit Tests
-            command: npm run test:unit
+            name: Unit Tests and Coverage
+            command: npm run test:coverage
 
       - run:
             name: Deploy

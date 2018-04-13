@@ -6,7 +6,7 @@ const Joi = frisby.Joi; // Frisby exports Joi for convenience on type assersions
 const BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
 describe('GET /test', () => {
-    it ('should returns 200 with the correct properties', function (done) {
+    it ('returns 200 with the correct properties', function (done) {
         frisby.get(`${BASE_URL}/test`)
             .expect('status', 200)
             .expect('jsonTypes', 'event.stageVariables.lambdaAliasName', 'DEV')

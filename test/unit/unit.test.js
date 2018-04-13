@@ -1,9 +1,15 @@
-var assert = require('assert');
+const {expect} = require('chai');
+const {handler} = require('../../index');
 
-describe('Array', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal([1,2,3].indexOf(4), -1);
-        });
+describe('handler()', function() {
+    it('should return a promise with the correct values', function() {
+        const mockEvent = {testEvent: true};
+        return handler(mockEvent)
+            .then(resp => {
+                expect(resp).to.deep.equal({
+                    statusCode: 200,
+                    body: JSON.stringify({event: mockEvent, version: 'V Another branch'})
+                });
+            });
     });
 });
