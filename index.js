@@ -2,7 +2,7 @@
 exports.handler = (event) => {
     const resp = {
         event,
-        version: 'V4'
+        version: 'V Another branch'
     };
 
     return Promise.resolve({
